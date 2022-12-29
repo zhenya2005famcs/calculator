@@ -1,33 +1,4 @@
-﻿  CalcBaza.cpp
-D:\Calculator\CalcBaza.h(13,12): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,18): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,28): error C2065: Stack_n: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,37): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,43): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,53): error C2065: Stack_o: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,72): error C2065: item: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,63): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.cpp(104,25): error C2064: результатом вычисления фрагмента не является функция, принимающая 3 аргументов
-D:\Calculator\CalcBaza.cpp(120,25): error C2064: результатом вычисления фрагмента не является функция, принимающая 3 аргументов
-D:\Calculator\CalcBaza.cpp(138,17): error C2064: результатом вычисления фрагмента не является функция, принимающая 3 аргументов
-D:\Calculator\CalcBaza.cpp(147,6): error C2365: Maths: переопределение; предыдущим определением было "переменная данных"
-D:\Calculator\CalcBaza.h(13): message : см. объявление "Maths"
-  Calculator.cpp
-D:\Calculator\CalcBaza.h(13,12): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,18): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,28): error C2065: Stack_n: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,37): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,43): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,53): error C2065: Stack_o: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,72): error C2065: item: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,63): error C2275: "Leksema": ожидается выражение вместо типа
-  mathFunctions.cpp
-D:\Calculator\CalcBaza.h(13,12): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,18): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,28): error C2065: Stack_n: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,37): error C2065: stack: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,43): error C2275: "Leksema": ожидается выражение вместо типа
-D:\Calculator\CalcBaza.h(13,53): error C2065: Stack_o: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,72): error C2065: item: необъявленный идентификатор
-D:\Calculator\CalcBaza.h(13,63): error C2275: "Leksema": ожидается выражение вместо типа
-  Создание кода...
+﻿  Calculator.cpp
+D:\Calculator\Calculator.cpp(45,37): warning C4305: =: усечение из "int" в "char"
+D:\Calculator\Calculator.cpp(45,33): warning C4309: =: усечение константного значения
+  Calculator.vcxproj -> D:\Calculator\x64\Debug\Calculator.exe

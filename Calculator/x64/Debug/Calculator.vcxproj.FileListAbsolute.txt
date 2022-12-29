@@ -1,1 +1,2 @@
 D:\Работа\source\Прога БГУ\Calculator\x64\Debug\Calculator.exe
+D:\Calculator\x64\Debug\Calculator.exe

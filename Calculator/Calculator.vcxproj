@@ -127,13 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CalcBaza.cpp" />
     <ClCompile Include="Calculator.cpp" />
-    <ClCompile Include="mathFunctions.cpp" />
+    <ClCompile Include="MathsFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CalcBaza.h" />
-    <ClInclude Include="mathFunctions.h" />
+    <ClInclude Include="Leksema.h" />
+    <ClInclude Include="MathsFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
