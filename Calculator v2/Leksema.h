@@ -1,6 +1,7 @@
 #pragma once
-struct Leksema //—труктура, описывающа€ любое число или операцию
+struct Leksema 
 {
-    char type; // 0 дл€ чисел, "+" дл€ операции сложени€ и т.д.
-    double value; //«начение (только дл€ чисел). ” операций значение всегда "0"
+    char type;
+    double value; 
+    bool logic;
 };

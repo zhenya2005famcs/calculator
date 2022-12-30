@@ -8,9 +8,11 @@ int StartCalculator() {
     setlocale(LC_ALL, "rus");
     while (true) {
         system("cls");
-        std::cout << "   Привет! Это программа - калькулятор!\n";
         std::cout << "   Для испрользования числа Пи введите 'p', для использования числа Е введите 'exp(1)'\n";
-        std::cout << "   Для испрользования тригонометрических функций используйте запись cos(), sin(), ctg(), tg() \n";
+        std::cout << "   Для испрользования тригонометрических функций пользуйтесь записью cos(), sin(), ctg(), tg() \n";
+        std::cout << "   Для вычисления корня используйте запись sqr() \n";
+        std::cout << "   Чтобы вычислить модуль числа используйте abs() \n";
+        std::cout << "   Для использования логических функций пользуйтесь записью neg(1 or 0), dis(1 1), con(0 0) \n";
         std::cout << "   Для остановки программы введите Exit \n";
         std::cout << "   Введите выражение: ";
         std::string str;
@@ -31,18 +33,32 @@ int StartCalculator() {
                 continue;
             }
             if (Ch == 'E') {
-                system("pause");
                 return 0;
             }
-            if (Ch == 's' || Ch == 'c' || Ch == 't' || Ch == 'e') {
+            if (Ch == 's') {
+                char foo[4];
+                for (int i = 0; i < 4; i++) {
+                    Ch = sstr.peek();
+                    foo[i] = Ch;
+                    sstr.ignore();
+                }
+                if (foo[0] == 's' && foo[1] == 'q' && foo[2] == 'r' && foo[3] == 't') {
+                    item.type = 'S';
+                    item.value = 0;
+                    Stack_o.push(item);
+                    continue;
+                }
+            }
+
+            if (Ch == 's' || Ch == 'c' || Ch == 't' || Ch == 'e' || Ch == 'n' || Ch == 'd' || Ch == 'c' || Ch == 'a') {
                 char foo[3]; 
                 for (int i = 0; i < 3; i++) {
                     Ch = sstr.peek();
                     foo[i] = Ch;
                     sstr.ignore();
                 }
-                if (foo[0] == 's' && foo[1] == 'q' && foo[2] == 'r') {
-                    item.type = 'sq';
+                if (foo[0] == 'a' && foo[1] == 'b' && foo[2] == 's') {
+                    item.type = 'a';
                     item.value = 0;
                     Stack_o.push(item);
                     continue;
@@ -77,6 +93,24 @@ int StartCalculator() {
                     Stack_o.push(item);
                     continue;
                 }
+                if (foo[0] == 'n' && foo[1] == 'e' && foo[2] == 'g') {
+                    item.type = 'n';
+                    item.value = 0;
+                    Stack_o.push(item);
+                    continue;
+                }
+                if (foo[0] == 'c' && foo[1] == 'o' && foo[2] == 'n') {
+                    item.type = 'C';
+                    item.value = 0;
+                    Stack_o.push(item);
+                    continue;
+                }
+                if (foo[0] == 'd' && foo[1] == 'i' && foo[2] == 's') {
+                    item.type = 'd';
+                    item.value = 0;
+                    Stack_o.push(item);
+                    continue;
+                }
             }
             if (Ch == 'p') { 
                 item.type = '0';
@@ -86,7 +120,25 @@ int StartCalculator() {
                 sstr.ignore();
                 continue;
             }
-            if (Ch >= '0' && Ch <= '9' || Ch == '-' && flag == 1) {
+            if (Ch == '0') {
+                sstr >> value;
+                item.type = '0';
+                item.value = value;
+                item.logic = false;
+                Stack_n.push(item);
+                flag = 0;
+                continue;
+            }
+            if (Ch == '1') {
+                sstr >> value;
+                item.type = '0';
+                item.value = value;
+                item.logic = true;
+                Stack_n.push(item);
+                flag = 0;
+                continue;
+            }
+            if (Ch > '1' && Ch <= '9' || Ch == '-' && flag == 1) {
                 sstr >> value;
                 item.type = '0';
                 item.value = value;
@@ -151,7 +203,10 @@ int StartCalculator() {
             }
             else continue; 
         }
-        std::cout << "   Ответ: " << Stack_n.top().value << std::endl; 
+        if (Stack_n.top().value == 1 || Stack_n.top().value == 0) {
+            std::cout << " Значение: " << Stack_n.top().value << ",  Логическое значение: " << Stack_n.top().logic << std::endl;
+        } else
+        std::cout << "   Ответ: " << Stack_n.top().value << std::endl;
         system("pause");
     }
     return 0;

@@ -3,49 +3,68 @@
 #include <iostream>
 #include <sstream>
 #include "Leksema.h"
-const double Pi = acos(-1); //Объявляем значение числа Пи
-double Sin(double x) { //Функция для округления значение синуса
+const double Pi = acos(-1); 
+double Sin(double x) { 
     return (round(sin(x) * 10000000) / 10000000);
 }
 
-double Cos(double x) { //Функция для округления значение косинуса
+double Cos(double x) { 
     return (round(cos(x) * 10000000) / 10000000);
 }
 
-double Ctg(double x) { //Функция для расчета котангенса
+double Ctg(double x) { 
     double a = cos(x);
     double b = Sin(x);
     return (a / b);
 }
-double Tan(double x) { //Функция для расчета котангенса
+double Tan(double x) { 
     double a = cos(x);
     double b = Sin(x);
     return (b / a);
 }
-double sqrt(double x) {
-    double res;
-    res = sqrt(x);
-    return res;
+double Sqrt(double x) {
+    return sqrt(x);
 }
-int getRang(char Ch) { //Функция возвращает приоритет операции: "1" для сложения и вычитания, "2" для умножения и деления и т.д.
+bool negation(double x) {
+    if (x == 1) return false;
+    else return true;
+}
+bool conjuction(double x, double y) {
+    if (x == 1 && y == 1 || x == 0 && y == 0) {
+        return true;
+    }
+    else return false;
+}
+bool disjuction(double x, double y) {
+    if (x == 0 && y == 0) return false;
+    else return true;
+}
+double Abs(double x) {
+    return fabs(x);
+}
+int getRang(char Ch) {
     if (Ch == 's' || Ch == 'c' || Ch == 't' || Ch == 'g' || Ch == 'e')return 4;
     if (Ch == '^')return 3;
     if (Ch == '+' || Ch == '-')return 1;
     if (Ch == '*' || Ch == '/')return 2;
     else return 0;
 }
-bool Maths(std::stack <Leksema>& Stack_n, std::stack <Leksema>& Stack_o, Leksema& item) { //Математическая функция, которая производит расчеты
-    double a, b, c;
-    a = Stack_n.top().value; //Берется верхнее число из стека с числами
-    Stack_n.pop(); //Удаляется верхнее число из стека с числами
-    switch (Stack_o.top().type) {  //Проверяется тип верхней операции из стека с операциями
-    case '+': //Если тип верхней операции из стека с операциями сложение
+bool Maths(std::stack <Leksema>& Stack_n, std::stack <Leksema>& Stack_o, Leksema& item) { 
+    double a, b, c, f;
+    bool d;
+    a = Stack_n.top().value; 
+    Stack_n.pop();
+    if (!Stack_n.empty()) {
+        f = Stack_n.top().value;
+    }
+    switch (Stack_o.top().type) { 
+    case '+': 
         b = Stack_n.top().value;
         Stack_n.pop();
         c = a + b;
         item.type = '0';
         item.value = c;
-        Stack_n.push(item); //Результат операции кладется обратно в стек с числами
+        Stack_n.push(item);
         Stack_o.pop();
         break;
 
@@ -146,8 +165,45 @@ bool Maths(std::stack <Leksema>& Stack_n, std::stack <Leksema>& Stack_o, Leksema
         Stack_n.push(item);
         Stack_o.pop();
         break;
-    case 'sq':
-        c = sqrt(a);
+    case 'S':
+        if (a < 0) {
+            std::cerr << "\nОшибка!\n";
+            return false;
+            break;
+        }
+        else
+        c = Sqrt(a);
+        item.type = '0';
+        item.value = c;
+        Stack_n.push(item);
+        Stack_o.pop();
+        break;
+    case 'n':
+        d = negation(a);
+        item.type = '0';
+        item.value = a;
+        item.logic = d;
+        Stack_n.push(item);
+        Stack_o.pop();
+        break;
+    case 'C':
+        d = conjuction(a, f);
+        item.type = '0';
+        item.value = 0;
+        item.logic = d;
+        Stack_n.push(item);
+        Stack_o.pop();
+        break;
+    case 'd':
+        d = disjuction(a, f);
+        item.type = '0';
+        item.value = 0;
+        item.logic = d;
+        Stack_n.push(item);
+        Stack_o.pop();
+        break;
+    case 'a':
+        c = Abs(a);
         item.type = '0';
         item.value = c;
         Stack_n.push(item);

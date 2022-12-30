@@ -1,4 +1,2 @@
 ﻿  Calculator.cpp
-D:\Calculator\Calculator.cpp(45,37): warning C4305: =: усечение из "int" в "char"
-D:\Calculator\Calculator.cpp(45,33): warning C4309: =: усечение константного значения
-  Calculator.vcxproj -> D:\Calculator\x64\Debug\Calculator.exe
+  Calculator.vcxproj -> D:\Calculator v2\x64\Debug\Calculator.exe
